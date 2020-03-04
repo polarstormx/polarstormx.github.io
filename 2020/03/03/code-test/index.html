@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="简单爬虫：乃木坂图库(上)(逻辑分析部分), Hexo">
+    <meta name="keywords" content="code test, ╭(°A°`)╮Polarstormx的blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>简单爬虫：乃木坂图库(上)(逻辑分析部分) | Hexo</title>
+    <title>code test | ╭(°A°`)╮Polarstormx的blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -23,10 +23,12 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+	<script src="/live2d-widget/autoload.js"></script>
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-vscode.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -38,7 +40,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Hexo</span>
+                    <span class="logo-span">╭(°A°`)╮Polarstormx的blog</span>
                 </a>
             </div>
             
@@ -136,7 +138,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Hexo</div>
+        <div class="logo-name">╭(°A°`)╮Polarstormx的blog</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -303,12 +305,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">简单爬虫：乃木坂图库(上)(逻辑分析部分)</h1>
+                    <h1 class="description center-align post-title">code test</h1>
                 </div>
             </div>
         </div>
@@ -423,17 +425,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E4%B9%83%E6%9C%A8%E5%9D%82/">
-                                <span class="chip bg-color">乃木坂</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                <span class="chip bg-color">爬虫</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -445,7 +439,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-02
+                    2020-03-03
                 </div>
                 
 
@@ -462,28 +456,75 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近几天，由于肖战粉丝举报ao3平台导致的“227大团结”事件，使得大家一度人人自危，担心某天自己喜欢的东西也因为上边的某个“政策”被删除或隔之墙外。最近由于疫情，托朋友买的花花写真没有到手 😭，只能在网上看看别人的扫图，联系到这个事件，便有了将图片下载下来保存（防止某天被封）的念头。于是乎，便写了一个爬虫，也就有了这篇文章。</p>
-<p>目标网站是 <a href="https://www.nogizaka46.net.cn/pic/memSelect.html" target="_blank" rel="noopener">https://www.nogizaka46.net.cn/pic/memSelect.html</a> 。</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-1.png" alt=""></p>
-<p>进入网站后会显示不同成员的合集，点击图片后会跳转到相应的合集，此时url变化为 <a href="http://nogizaka46.net.cn/pic/memberInfo.html" target="_blank" rel="noopener">nogizaka46.net.cn/pic/memberInfo.html</a> 后面的参数name=*区别了不同合集。</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-2.png" alt=""></p>
-<p>当然直接查看网页的showpic.js文件也可以得出这个结论。</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-3.png" alt=""></p>
-<p>查看网页的html代码，很容易找到图片对应的位置，如下图</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-4.png" alt=""></p>
-<p>此时理论上已经可以爬取图片，但发现在此页面中，点击左侧的图片可以切换右侧的具体合集，并且页面向下滚动至底时，会加载新的图片。因此直接爬取无法得到第一页之后的图片。此过程中url未发生变化，无法通过url的变化直接获得后边图片，猜测网页应该运用了ajax技术，于是继续查看网页的js代码。</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-5.png" alt=""></p>
-<p>可以发现图片的地址是从nogizaka/getImageUrl获取的，查看网页的网络请求记录，我们可以找到一个GET请求，同样是name=*的方式获取相应合集的图片地址。</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-6.png" alt=""></p>
-<p>直接在浏览器输入name为ikuta_protrait1的URL，不出所料，我们得到了此合集的所有图片地址。</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-7.png" alt=""></p>
-<p>那我们如何获得所有合集对应的name呢？其实和上边的原理相同，可以看到是通过/pic/pic_group/getMemberInfo得到所有的合集名称。</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-9.png" alt=""></p>
-<p>同样，在网络请求记录也可以找到这条请求:</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-8.png" alt=""></p>
-<p>于是便得到了合集的名称:</p>
-<p><img src="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/pasted-10.png" alt=""></p>
-<p>至此，我们爬虫的基本逻辑分析完成👏，剩下的便是代码的编写部分了。</p>
+                <pre class="language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">object</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+	<span class="token function">object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> <span class="token function">Base</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">double</span> knot<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> num<span class="token punctuation">,</span> <span class="token keyword">double</span> u<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">double</span> temp1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">double</span> temp2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token punctuation">(</span>num <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>u <span class="token operator">&gt;=</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>u <span class="token operator">&lt;=</span> knot<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+			<span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">else</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>u <span class="token operator">&gt;=</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>u <span class="token operator">&lt;</span> knot<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+			<span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">!=</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			temp1 <span class="token operator">=</span> <span class="token function">Base</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> knot<span class="token punctuation">,</span> num<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			temp1 <span class="token operator">=</span> <span class="token punctuation">(</span>u <span class="token operator">-</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span>temp1 <span class="token operator">/</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k<span class="token punctuation">]</span> <span class="token operator">!=</span> knot<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			temp2 <span class="token operator">=</span> <span class="token function">Base</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> knot<span class="token punctuation">,</span> num<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			temp2 <span class="token operator">=</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k<span class="token punctuation">]</span> <span class="token operator">-</span> u<span class="token punctuation">)</span> <span class="token operator">*</span> temp2 <span class="token operator">/</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k<span class="token punctuation">]</span> <span class="token operator">-</span> knot<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span> temp1 <span class="token operator">+</span> temp2<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">/*int N = 4;
+	int K = 3;
+	double knots[100];
+	for (int i = 0; i &lt; N + K + 1; i++)
+	{
+		knots[i] = i;
+	}
+	cout &lt;&lt; Base(0,K,knots,N+K+1,0.6);*/</span>
+	vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> N<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> m <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>m<span class="token punctuation">)</span><span class="token comment">//向N中填充二项式系数用于计算</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n <span class="token operator">-</span> m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+			r <span class="token operator">*=</span> i<span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+			r <span class="token operator">/=</span> i<span class="token punctuation">;</span>
+		N<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">void</span> <span class="token operator">*</span>yizhi<span class="token punctuation">;</span>
+	yizhi <span class="token operator">=</span> <span class="token keyword">new</span> object<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -527,7 +568,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="polarstormx.github.io/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/">polarstormx.github.io/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/</a>
+                    <a href="polarstormx.github.io/2020/03/03/code-test/">polarstormx.github.io/2020/03/03/code-test/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -564,15 +605,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E4%B9%83%E6%9C%A8%E5%9D%82/">
-                                    <span class="chip bg-color">乃木坂</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                    <span class="chip bg-color">爬虫</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -879,7 +912,54 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/03/02/%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB%EF%BC%8C%E4%B9%83%E6%9C%A8%E5%9D%82%E5%9B%BE%E5%BA%93-1/">
+                <a href="/2020/03/03/code-test/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="code test">
+                        
+                        <span class="card-title">code test</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            #include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class object
+{
+public:
+	object();
+};
+double Base
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            polarstormx
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/">
                     <div class="card-image">
                         
                         
@@ -906,7 +986,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -918,43 +997,6 @@
                         <span class="chip bg-color">爬虫</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/02/28/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            polarstormx
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
@@ -993,7 +1035,7 @@
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Hexo<br />'
+            + '来源: ╭(°A°`)╮Polarstormx的blog<br />'
             + '文章作者: polarstormx<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
@@ -1279,8 +1321,6 @@ $(function () {
 </script>
 
     
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
@@ -1293,6 +1333,8 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
     
     
