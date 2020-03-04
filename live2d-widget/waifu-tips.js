@@ -4,7 +4,6 @@
  */
 
 function loadWidget(config) {
-	console.log(789456);
 	let { waifuPath, apiPath, cdnPath } = config;
 	let useCDN = false, modelList;
 	if (typeof cdnPath === "string") {

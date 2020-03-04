@@ -26,7 +26,13 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 	<script src="/live2d-widget/autoload.js"></script>
     <script src="/libs/jquery/jquery.min.js"></script>
-    
+	<script src="/libs/jquery-pjax/jquery.pjax.js"></script>
+    <script>
+    $(document).pjax('a[target!=_blank]', '#pjax-container', {
+        fragment: '#pjax-container',
+        timeout: 5000,
+    });
+	</script>
 <meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-vscode.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -301,7 +307,8 @@
 
 </header>
 
-    
+    <div id="pjax-container">
+	
 <style>
     .carousel-control {
         width: 45px;
@@ -666,8 +673,7 @@ double Base(in
 </main>
 
 
-
-
+	</div>
     <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
