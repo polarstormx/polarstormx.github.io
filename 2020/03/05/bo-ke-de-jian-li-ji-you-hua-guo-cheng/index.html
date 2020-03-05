@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="code test, ╭(°A°`)╮Polarstormx的blog">
+    <meta name="keywords" content="博客的建立及优化过程, ╭(°A°`)╮Polarstormx的blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>code test | ╭(°A°`)╮Polarstormx的blog</title>
+    <title>博客的建立及优化过程 | ╭(°A°`)╮Polarstormx的blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 	
 
 
-<div class="bg-cover pd-header post-cover " style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover " style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">code test</h1>
+                    <h1 class="description center-align post-title">博客的建立及优化过程</h1>
                 </div>
             </div>
         </div>
@@ -431,9 +431,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">hexo</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -445,28 +449,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-03
+                    2020-03-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-03
+                    2020-03-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    286
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -482,74 +486,58 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+                <p>建立这个博客的过程中碰到了一系列的问题，这个网站也经过了许多的完善及优化才变成当前这个模样，本篇记录了每次优化以及问题修复的过程。　　</p>
+<h2 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h2><p>　　本博客采用的<a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a>架构，使用了<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">matery</a>主题，部署在<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>上，莫得钱买域名，所以就用着原本的网址。由于国内访问github较慢，使用了<a href="https://www.jsdelivr.com/" target="_blank" rel="noopener">jsdelivr</a>提供的免费的cdn加速服务。</p>
+<h2 id="优化历程"><a href="#优化历程" class="headerlink" title="优化历程"></a>优化历程</h2><h3 id="1-音乐播放器"><a href="#1-音乐播放器" class="headerlink" title="1 音乐播放器"></a>1 音乐播放器</h3><p>　　matery主题内置了音乐播放器，在主题的_config.yml文件中将music.enable设置为true即可开启：</p>
+<p><img src="//polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/pasted-0.png" alt><br>　　但在切换为网易云的源后，发现歌曲名居然和背景一样几乎是白色，基本看不清，为了改变颜色，我们找到负责此处的css文件，位置是/source/libs/aplayer/APlayer.min.css，将其中的<br><code>.aplayer-title{font-size:14px}</code>改为<code>.aplayer-title{font-size:14px;color:#666}</code>，当然color可以自己随意选择，上方播放列表里的歌名也为白色，但css文件里没有关于此部分的颜色设置，于是需要自己再加上<code>.aplayer-list-title{color:#666}</code></p>
+<h3 id="2-开启评论区"><a href="#2-开启评论区" class="headerlink" title="2 开启评论区"></a>2 开启评论区</h3><p>　　matery内置了几种评论插件，有gittalk、gitment、来比力等，我选择了<a href="https://valine.js.org/" target="_blank" rel="noopener">valine</a>，因为这个插件游客不需要登录即可评论，之后使用了<a href="https://github.com/zhaojun1998/Valine-Admin" target="_blank" rel="noopener">Valine-Admin</a>(by @zhaojun1998)的邮件提醒功能，在<a href="https://www.leancloud.cn/" target="_blank" rel="noopener">Leancloud</a>进行设置后，当有人发布了评论后，我的邮箱会收到提醒：<br><img src="//polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/pasted-1.png" alt><br>同样，在你填写了邮箱后评论，你的邮箱也会收到邮件：</p>
+<p><img src="//polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/pasted-2.png" alt><br>但是由于leancloud免费版无法每天24小时运行，在0-7点无法进行邮件提醒。</p>
+<h3 id="3-代码高亮及行号"><a href="#3-代码高亮及行号" class="headerlink" title="3 代码高亮及行号"></a>3 代码高亮及行号</h3><p>　　hexo自带代码高亮的功能，但是为了更加美观，安装了<a href="https://github.com/ele828/hexo-prism-plugin" target="_blank" rel="noopener">hexo-prism-plugin</a>插件，之后将 Hexo 根目录下 <code>_config.yml</code> 文件中 <code>highlight.enable</code> 的值为 <code>false</code>，并新增 <code>prism</code> 插件相关的配置，配置如下：</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">highlight</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
 
-<span class="token keyword">class</span> <span class="token class-name">object</span>
-<span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token function">object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">double</span> <span class="token function">Base</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">double</span> knot<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> num<span class="token punctuation">,</span> <span class="token keyword">double</span> u<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">double</span> temp1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">double</span> temp2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token punctuation">(</span>num <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>u <span class="token operator">>=</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>u <span class="token operator">&lt;=</span> knot<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">else</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>u <span class="token operator">>=</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>u <span class="token operator">&lt;</span> knot<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">!=</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            temp1 <span class="token operator">=</span> <span class="token function">Base</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> knot<span class="token punctuation">,</span> num<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            temp1 <span class="token operator">=</span> <span class="token punctuation">(</span>u <span class="token operator">-</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">*</span>temp1 <span class="token operator">/</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> knot<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k<span class="token punctuation">]</span> <span class="token operator">!=</span> knot<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            temp2 <span class="token operator">=</span> <span class="token function">Base</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> knot<span class="token punctuation">,</span> num<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            temp2 <span class="token operator">=</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k<span class="token punctuation">]</span> <span class="token operator">-</span> u<span class="token punctuation">)</span> <span class="token operator">*</span> temp2 <span class="token operator">/</span> <span class="token punctuation">(</span>knot<span class="token punctuation">[</span>i <span class="token operator">+</span> k<span class="token punctuation">]</span> <span class="token operator">-</span> knot<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> temp1 <span class="token operator">+</span> temp2<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/*int N = 4;
-    int K = 3;
-    double knots[100];
-    for (int i = 0; i &lt; N + K + 1; i++)
-    {
-        knots[i] = i;
-    }
-    cout &lt;&lt; Base(0,K,knots,N+K+1,0.6);*/</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> N<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> m <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>m<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//向N中填充二项式系数用于计算</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n <span class="token operator">-</span> m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
-            r <span class="token operator">*</span><span class="token operator">=</span> i<span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
-            r <span class="token operator">/</span><span class="token operator">=</span> i<span class="token punctuation">;</span>
-        N<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">void</span> <span class="token operator">*</span>yizhi<span class="token punctuation">;</span>
-    yizhi <span class="token operator">=</span> <span class="token keyword">new</span> object<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token key atrule">prism_plugin</span><span class="token punctuation">:</span>
+  <span class="token key atrule">mode</span><span class="token punctuation">:</span> <span class="token string">'preprocess'</span>    <span class="token comment" spellcheck="true"># realtime/preprocess</span>
+  <span class="token key atrule">theme</span><span class="token punctuation">:</span> <span class="token string">'vscode'</span>
+  <span class="token key atrule">line_number</span><span class="token punctuation">:</span> <span class="token boolean important">true    </span><span class="token comment" spellcheck="true"># default false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>　　其中theme为具体高亮类型，内置了几种主题，也可以自行添加喜欢的高亮主题，本博客用的是类似vscode drak模式下的颜色，<br>　　搜索你想要的高亮主题的css文件，将其放置在\node_modules\prismjs\themes下，并改名为<code>prism-***.css</code>,再更改配置文件的<code>prism_plugin.theme</code>为***即可，像我此处文件为<code>prism-vscode.css</code>，配置为<code>theme: 'vscode'</code>。<br>　　切记使用此插件需要使用hexo默认的marked渲染器我当时安装了markdown-it作为渲染器，导致行号显示不正常。</p>
+<h3 id="4-看板娘"><a href="#4-看板娘" class="headerlink" title="4 看板娘"></a>4 看板娘</h3><p>　　作为一个老二次元，一个看板娘是博客的必须品，这里使用了一个功能比自带看板娘更加丰富的<a href="https://github.com/stevenjoezhang/live2d-widget" target="_blank" rel="noopener">版本</a>，在基础上增加了不少新功能。部署的话也不是很难，可以直接在网页内添加对原作者项目的引用，即在<code>&lt;head&gt;</code>或<code>&lt;body&gt;</code>标签内添加如下代码</p>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>当然由于此插件需要 Font Awesome 4.7.0 支持，需要加载相关样式表，在 <code>&lt;head&gt;</code>中加入：</p>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>否则无法正常显示。（如果网页中已经加载了 Font Awesome，就不要重复加载了）<br>　　也可以将此插件放到服务器上而非cdn加载，本博客也是这么做的，下载下此项目，放置在主题的source文件夹下，并修改<code>autoload.js</code>文件,更改path</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//const live2d_path = "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";</span>
+<span class="token keyword">const</span> live2d_path <span class="token operator">=</span> <span class="token string">"/live2d-widget/"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>　　对于matery主题，修改前端页面时，<code>&lt;head&gt;</code>部分的文件在themes\matery\layout_partial\head.ejs，加入</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/live2d-widget/autoload.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>来开启看板娘。看板娘的位置大小等属性在live2d-widget/waifu.css中更改，像此处就将其从默认的左侧移动到了右侧。其行为模式在waifu-tips.js中修改。如果想进一步更改外形等选项，需要在autoload.js中修改其API，默认使用的是原作者提供的<a href https: github.com fghrsh live2d_api"">API</a>,想进一步修改需要自己搭建API。</p>
+<h3 id="5-可视化博客编辑"><a href="#5-可视化博客编辑" class="headerlink" title="5 可视化博客编辑"></a>5 可视化博客编辑</h3><p>　　用原生的方法编辑博客是很不方便的，即直接修改_post文件下的.md文件来进行博客编辑，这时可以安装hexo-admin插件进行可视化的编辑，使用时执行<code>hexo s -d</code>,网页登录<code>http://localhost:4000/admin</code>即可,效果如下图：</p>
+<p><img src="//polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/pasted-4.png" alt><br>此时在编辑页面中粘贴图片会自动生成如下的链接并在image文件夹下生成图片文件</p>
+<pre class="line-numbers language-markdown"><code class="language-markdown">![](\\images\pasted-0.png\)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在windows下这个格式无法正常显示图片，需手动将斜杠更换为如下形式</p>
+<pre class="line-numbers language-markdown"><code class="language-markdown">![](pasted-0.png)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>即可正常显示。<br>　　但当博客变多后，所有图片放在一个文件夹会非常杂乱，于是我们可以安装<code>hexo-asset-image</code>插件，这样在新建博客时会自动在_posts文件夹下建立与文章同名的文件夹，将图片放在此文件下，博客中可以通过间接位置引用图片，十分方便，像之前的图片引用可直接写为：</p>
+<pre class="line-numbers language-markdown"><code class="language-markdown">![](pasted-0.png) <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="6-pjax无刷新加载"><a href="#6-pjax无刷新加载" class="headerlink" title="6 pjax无刷新加载"></a>6 pjax无刷新加载</h3><p>　　在使用音乐与看板娘时发现了一个较为麻烦的问题：在网页上点击跳转后，音乐与看板娘组件重新加载，会导致音乐中断并重新播放，解决方法是采用<a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">pjax</a>技术，pjax 的工作原理是通过 ajax 从服务器端获取 HTML，在页面中用获取到的 HTML 替换指定容器元素中的内容。然后使用 pushState 技术更新浏览器地址栏中的当前地址。这样博客跳转时只刷新不同的部分，音乐，看板娘等无需进行刷新。不仅解决了音乐中断的问题，这种方式也可以加快网页的加载。<br>　　首先通过npm下载jquery-pjax组件，将其放在主题的source文件夹下,我此处放在了source/libs下,之后需要在前端加载其js文件收是在head.ejs文件中,添加</p>
+<pre class="line-numbers language-html"><code class="language-html">     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/libs/jquery-pjax/jquery.pjax.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>　　要注意的是pjax需要jquery组件的支持，因此此条语句一定要放在jquery的加载语句之后，否则无法正确执行。<br>　　之后，添加pjax的命令，在<code>&lt;head&gt;</code> <code>&lt;body&gt;</code>中均可，如下</p>
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token operator">&lt;</span>script<span class="token operator">></span>
+    <span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pjax</span><span class="token punctuation">(</span><span class="token string">'a[target!=_blank]'</span><span class="token punctuation">,</span> <span class="token string">'#pjax-container'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        fragment<span class="token punctuation">:</span> <span class="token string">'#pjax-container'</span><span class="token punctuation">,</span>
+        timeout<span class="token punctuation">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>　　这里指定进行不为新窗口跳转时，只有id为<code>pjax-container</code>的部分进行刷新。对比网页跳转时的改变，发现网页最上方的header以及最下方的footer部分是不需要刷新的，而音乐和看板娘组件也正好在footer标签中。于是将需要刷新的主体body部分使用id为<code>pjax-container</code>的标签包裹。对layout/layout.ejs进行修改,将</p>
+<pre class="line-numbers language-ejs"><code class="language-ejs"><%- partial('_partial/header') %>
+<%- body %>
+<%- partial('_partial/footer') %><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>改为</p>
+<pre class="line-numbers language-ejs"><code class="language-ejs"><%- partial('_partial/header') %>
+<div id="pjax-container">
+<%- body %>
+</div>
+<%- partial('_partial/footer') %><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这样网页跳转时只有被包裹的部分进行刷新。<br>　　但这样加载后会出现问题，因为在pjax中是局部刷新的，一些js插件没有收到页面的加载信号不会被执行。最明显的是评论组件在页面跳转后失效。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -593,7 +581,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://polarstormx.github.io/2020/03/03/code-test/">http://polarstormx.github.io/2020/03/03/code-test/</a>
+                    <a href="http://polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/">http://polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -630,7 +618,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -932,9 +924,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/">
                     <div class="card-image">
@@ -953,9 +946,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -964,6 +957,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -982,24 +976,33 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/">
+                <a href="/2020/03/03/code-test/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="简单爬虫：乃木坂图库(上)(逻辑分析部分)">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="code test">
                         
-                        <span class="card-title">简单爬虫：乃木坂图库(上)(逻辑分析部分)</span>
+                        <span class="card-title">code test</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最近几天，由于肖战粉丝举报ao3平台导致的“227大团结”事件，使得大家一度人人自危，担心某天自己喜欢的东西也因为上边的某个“政策”被删除或隔之墙外。最近由于疫情，托朋友买的花花写真没有到手 😭，只能在网上看看别人的扫图，联系到这个事件，
+                            #include &lt;iostream>
+#include &lt;vector>
+using namespace std;
+
+class object
+{
+public:
+    object();
+};
+double Base(in
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-03
                             </span>
                         <span class="publish-author">
                             
@@ -1008,18 +1011,6 @@
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E4%B9%83%E6%9C%A8%E5%9D%82/">
-                        <span class="chip bg-color">乃木坂</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
-                    </a>
-                    
                 </div>
                 
             </div>
