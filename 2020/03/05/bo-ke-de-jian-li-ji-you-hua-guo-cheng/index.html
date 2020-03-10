@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博客的建立及优化过程, ╭(°A°`)╮Polarstormx的blog">
+    <meta name="keywords" content="博客的建立及优化过程, ╭(°A°`)╮Polarstormx">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>博客的建立及优化过程 | ╭(°A°`)╮Polarstormx的blog</title>
+    <title>博客的建立及优化过程 | ╭(°A°`)╮Polarstormx</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/polarstormx/polarstormx.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/polarstormx/polarstormx.github.io/libs/awesome/css/all.css">
@@ -40,7 +40,7 @@
                     
                     <img src="https://cdn.jsdelivr.net/gh/polarstormx/polarstormx.github.io/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">╭(°A°`)╮Polarstormx的blog</span>
+                    <span class="logo-span">╭(°A°`)╮Polarstormx</span>
                 </a>
             </div>
             
@@ -138,7 +138,7 @@
         
         <img src="https://cdn.jsdelivr.net/gh/polarstormx/polarstormx.github.io/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">╭(°A°`)╮Polarstormx的blog</div>
+        <div class="logo-name">╭(°A°`)╮Polarstormx</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -450,14 +450,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-05
+                    2020-03-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -540,6 +540,10 @@
 <%- partial('_partial/footer') %><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这样网页跳转时只有被包裹的部分进行刷新。<br>　　但这样加载后会出现问题，因为在pjax中是局部刷新的，一些js插件没有收到页面的加载信号不会被执行。最明显的是评论组件在页面跳转后失效。<br>　　为了修复这个问题，在stackoverflow查看了一些有关pjax的问题，最初的想法是在pjax加载后，重新执行valine的初始化函数，但是valine公布的js是min.js的格式，经历过压缩，变量名全部替换成了a、b、c等且if都被优化成了诸如a?b:c的形式，尝试阅读了一阵子源码后只好放弃。但突然发现其实valine的初始化是在pjax的刷新容器内的，valine初始化是正确的，问题在于依赖的leancloud的av对象不支持重新初始化，尝试重新执行av-min.js也会出错。<br>　　幸运的是，在github该项目下，有人在issue中提出过使用pjax不兼容的问题，作者在去年给出了解决方案，即在valine的初始化选项中加入path选项，下图是官网的描述：<br><img src="//polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/pasted-5.png" alt><br>　　这样一来，valine就可以根据当前的url来判断从av对象的哪一部分来获得正确的评论。然而令人头疼的是文章下的评论正常工作，但留言板却读取不到评论内容。由于没上过前端开发的课程，对相关的调试不是很熟悉，磕磕绊绊地经过一阵子排查后，在leancloud发现通过pjax跳转到的评论页的url与直接刷新的不同：</p>
 <p><img src="//polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/pasted-6.png" alt><br>　　容易看到pjax跳转到的contact后面缺少一个’/‘。这正是读取不到评论的罪魁祸首。<br>　　接下来的工作就很容易了，通过阅读layout文件夹下的ejs文件，定位到href生成的地方：<br><img src="//polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/pasted-7.png" alt><br>　　在url后加上’/‘即可。<br><img src="//polarstormx.github.io/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/pasted-8.png" alt></p>
+<h3 id="其余小修改"><a href="#其余小修改" class="headerlink" title="其余小修改"></a>其余小修改</h3><ul>
+<li>导航栏绿色不太搭配，改为与背景图片轮换的颜色。修改了<code>matery.css</code>中的<code>.bg-color</code>项</li>
+<li>歌词与最下方文字重叠，改至右上方。修改了<code>Aplayer.min.css</code>中的<code>.aplayer.aplayer-fixed .aplayer-lrc</code>项，手机端维持原样。</li>
+</ul>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>　　如果发现了博客有关的bug或是相关的建议，欢迎在此篇的评论区或者留言板留言，有相关问题也可以互相交流。<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f611.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f611.png?v8">😑</span></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1054,7 +1058,7 @@ double Base(in
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: ╭(°A°`)╮Polarstormx的blog<br />'
+            + '来源: ╭(°A°`)╮Polarstormx<br />'
             + '文章作者: polarstormx<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
@@ -1200,7 +1204,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                    type="playlist"
                    id="3162320470"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme:='#42b983'
                    loop='all'
                    order='random'
@@ -1226,7 +1230,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.4k</span>&nbsp;字
+                class="white-color">3.5k</span>&nbsp;字
             
             
             
