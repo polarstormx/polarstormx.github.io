@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="简单爬虫：乃木坂图库(上)(逻辑分析部分), ╭(°A°`)╮Polarstormx">
+    <meta name="keywords" content="王者荣耀积分机制计算, ╭(°A°`)╮Polarstormx">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>简单爬虫：乃木坂图库(上)(逻辑分析部分) | ╭(°A°`)╮Polarstormx</title>
+    <title>王者荣耀积分机制计算 | ╭(°A°`)╮Polarstormx</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -305,12 +305,12 @@
 	
 
 
-<div class="bg-cover pd-header post-cover " style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover " style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">简单爬虫：乃木坂图库(上)(逻辑分析部分)</h1>
+                    <h1 class="description center-align post-title">王者荣耀积分机制计算</h1>
                 </div>
             </div>
         </div>
@@ -425,17 +425,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E4%B9%83%E6%9C%A8%E5%9D%82/">
-                                <span class="chip bg-color">乃木坂</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                <span class="chip bg-color">爬虫</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -447,28 +439,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-02
+                    2020-03-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-04
+                    2020-03-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    617
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -484,28 +476,226 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近几天，由于肖战粉丝举报ao3平台导致的“227大团结”事件，使得大家一度人人自危，担心某天自己喜欢的东西也因为上边的某个“政策”被删除或隔之墙外。最近由于疫情，托朋友买的花花写真没有到手 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8">😭</span>，只能在网上看看别人的扫图，联系到这个事件，便有了将图片下载下来保存（防止某天被封）的念头。于是乎，便写了一个爬虫，也就有了这篇文章。</p>
-<p>　　目标网站是 <a href="https://www.nogizaka46.net.cn/pic/memSelect.html" target="_blank" rel="noopener">https://www.nogizaka46.net.cn/pic/memSelect.html</a> 。</p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-1.png" alt="">  </p>
-<p>　　进入网站后会显示不同成员的合集，点击图片后会跳转到相应的合集，此时url变化为 nogizaka46.net.cn/pic/memberInfo.html 后面的参数name=*区别了不同合集。  </p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-2.png" alt="">  </p>
-<p>　　当然直接查看网页的showpic.js文件也可以得出这个结论。  </p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-3.png" alt="">  </p>
-<p>　　查看网页的html代码，很容易找到图片对应的位置，如下图  </p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-4.png" alt="">  </p>
-<p>　　此时理论上已经可以爬取图片，但发现在此页面中，点击左侧的图片可以切换右侧的具体合集，并且页面向下滚动至底时，会加载新的图片。因此直接爬取无法得到第一页之后的图片。此过程中url未发生变化，无法通过url的变化直接获得后边图片，猜测网页应该运用了ajax技术，于是继续查看网页的js代码。</p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-5.png" alt="">  </p>
-<p>　　可以发现图片的地址是从nogizaka/getImageUrl获取的，查看网页的网络请求记录，我们可以找到一个GET请求，同样是name=*的方式获取相应合集的图片地址。  </p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-6.png" alt=""></p>
-<p>　　直接在浏览器输入name为ikuta_protrait1的URL，不出所料，我们得到了此合集的所有图片地址。</p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-7.png" alt=""></p>
-<p>　　那我们如何获得所有合集对应的name呢？其实和上边的原理相同，可以看到是通过/pic/pic_group/getMemberInfo得到所有的合集名称。</p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-9.png" alt=""></p>
-<p>　　同样，在网络请求记录也可以找到这条请求:</p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-8.png" alt=""></p>
-<p>　　于是便得到了合集的名称:</p>
-<p><img src="//polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/pasted-10.png" alt=""></p>
-<p>　　至此，我们爬虫的基本逻辑分析完成<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8">👏</span>，剩下的便是代码的编写部分了。</p>
+                <p>写这篇文章的原因是前一阵子，好友g某因为太菜惹了女友生气，要求他必须上了王者才可以继续一起双排，于是帮他算算在王者荣耀的机制下，胜率与上分效率的关系。</p>
+<p>假设一个玩家的胜率为$p(0&lt;=p&lt;=1)$，平均每局的勇者积分为$s(s\in N)$，积分达到$a(a \in N^+)$后保星。经历$k(k \in N^+)$局后，他获得的星数为$n(n \in Z)$。</p>
+<p>首先易知，每经历$\frac{a}{s}$局，积分达到一次保星。<br>忽略人为因素，我们认为这$k$局中局与局之间没有影响，胜负情况满足伯努利分布,即概率质量函数为：<br>$$<br>f_X(x)=p^x (1-p)^{1-x}<br>$$<br>那么胜利局数期望为：<br>$$<br>E[X]=\sum_{i=0}^1 x_i f_X(x)=p<br>$$<br>同理,失败局数期望为$1-p$<br>k局后，通过胜负得到的星数:<br>$$<br>n_1=k[p-(1-p)]=2pk-k<br>$$<br>通过积分避免失去的星数：<br>$$<br>n_2=\frac{ks}{a}<br>$$<br>则：<br>$$<br>n=n_1+n_2=2pk-k+\frac{ks}{a}\tag{1}<br>$$<br>接下来结合游戏考察常量。<br>对于保星分数$s$查询得到结果如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">段位</th>
+<th align="center">保星分数</th>
+<th align="center">升段所需星数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">青铜</td>
+<td align="center">60</td>
+<td align="center">9</td>
+</tr>
+<tr>
+<td align="center">白银</td>
+<td align="center">60</td>
+<td align="center">9</td>
+</tr>
+<tr>
+<td align="center">黄金</td>
+<td align="center">80</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td align="center">铂金</td>
+<td align="center">150</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td align="center">钻石</td>
+<td align="center">300</td>
+<td align="center">25</td>
+</tr>
+<tr>
+<td align="center">星耀</td>
+<td align="center">300</td>
+<td align="center">25</td>
+</tr>
+<tr>
+<td align="center">王者</td>
+<td align="center">350</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>对于每局的平均加分，现有加分机制如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">段位</th>
+<th align="center">加分</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">无挂机行为</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">金牌</td>
+<td align="center">50</td>
+</tr>
+<tr>
+<td align="center">银牌</td>
+<td align="center">25</td>
+</tr>
+<tr>
+<td align="center">虽败犹荣</td>
+<td align="center">？</td>
+</tr>
+<tr>
+<td align="center">实力较强</td>
+<td align="center">？</td>
+</tr>
+</tbody></table>
+<p>之外，还有连胜奖励与队伍评分奖励：</p>
+<table>
+<thead>
+<tr>
+<th align="center">连胜</th>
+<th align="center">加分</th>
+<th align="center">局内评分</th>
+<th align="center">加分</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">第1</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">第2</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">10</td>
+<td align="center">第3</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">15</td>
+<td align="center">第4</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">5及以上</td>
+<td align="center">20</td>
+<td align="center">第5</td>
+<td align="center">3</td>
+</tr>
+</tbody></table>
+<p>虽败犹荣与实力较强官方没有给出具体数据，就已知数据而言，每局有无挂机的3分，局内评分平均$\frac{5+4+4+3+3}{5}=3.8$分。</p>
+<p>计算连胜奖励分，方便起见，记失败概率为$q=1-p$,对于第m局，此局无连胜的概率为第m局胜利、第m-1局失败的概率$pq$,此局1连胜的概率为第m局与第m-1局获胜且第m-2局失败的概率$p^2q$…4连胜概率为$p^5q$,五连胜及以上的概率为$p^6$<br>$$<br>E=\sum 3qp^2+5qp^3+10qp^4+15qp^5+20p^6<br>$$<br>显然这个式子很不直观，因此我们通过excel绘制p从0至1的奖励分期望：</p>
+<p><img src="//polarstormx.github.io/2020/03/11/wang-zhe-rong-yao-ji-fen-ji-zhi-ji-suan/pasted-0.png" alt=""></p>
+<p>可以看到当胜率很高时会获得相当多的连胜奖励分，但由于elo系统会使你的胜率在50%附近，我们观察胜率为0.4-0.6的连胜分：</p>
+<table>
+<thead>
+<tr>
+<th align="center">胜率</th>
+<th align="center">连胜分期望</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0.4</td>
+<td align="center">0.80768</td>
+</tr>
+<tr>
+<td align="center">0.45</td>
+<td align="center">1.12856</td>
+</tr>
+<tr>
+<td align="center">0.5</td>
+<td align="center">1.54688</td>
+</tr>
+<tr>
+<td align="center">0.55</td>
+<td align="center">2.08783</td>
+</tr>
+<tr>
+<td align="center">0.6</td>
+<td align="center">2.78208</td>
+</tr>
+</tbody></table>
+<p>实际上大部分玩家在此部分获得的分数为1.5分左右</p>
+<p>对于金牌和银牌加分比较难估计，为此我们查看王者营地给出的英雄金牌榜，可以发现场均金牌从0.04到0.25（<del>无敌的蒙犽</del>）不等，计算得出平均值为0.08，当然如果你不常玩榜底的那些冷门英雄时，这个数字还会有所提高。由于没有银牌榜，那么只能进行估算，其难度比金牌低，因此估测为金牌的1.5倍，即场均0.12。这样我们通过金银牌获得的加分为$0.08*50+0.12*25=7</p>
+<p>至此，我们已经拥有了3+3.8+1.5+7=15.3分，至于虽败犹荣与实力较强，为便于计算，每个计为2.35分，这样总共我们得到的$s=15.3+2.35*2=20$</p>
+<p>正式的计算终于开始了，回到我们的问题，一个胜率为50%的人，上分效率如何呢？<br>我们将p=0.5，s=20，各段位的保星分数a与所需星数n代入(1)式<br>例如白银的a为60，n为9:<br>$$<br>9=2*0.5k-k+\frac{20k}{60}<br>$$</p>
+<p>解得k=27<br>于是我们计算得到下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">段位</th>
+<th align="center">局数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">白银3-黄金4</td>
+<td align="center">27</td>
+</tr>
+<tr>
+<td align="center">黄金4-铂金4</td>
+<td align="center">64</td>
+</tr>
+<tr>
+<td align="center">铂金4-钻石5</td>
+<td align="center">120</td>
+</tr>
+<tr>
+<td align="center">钻石5-星耀5</td>
+<td align="center">375</td>
+</tr>
+<tr>
+<td align="center">星耀5-王者</td>
+<td align="center">375</td>
+</tr>
+</tbody></table>
+<p>当然由于有着排位保护卡以及晋级赛失败的加分机制，譬如刚到钻石和刚到星耀的5张保护卡以及活动的几张保护卡，至少可以使钻石到王者的路上少掉7-8星。</p>
+<p>好的，那么小明赛季初钻五开打，尽管小明打的比较菜鸡，但在elo系统的庇护下，维持着的50%的胜率，加上保护卡等因素，我们计他需要375+375-100=650场。一场比赛平均记为25分钟，共需约270小时，一个赛季3个月90天，每天需要3个小时重度游戏，小明成功晋级王者<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8">👏</span></p>
+<p>那么如果小明再顶一些呢？<br>小明认真阅读了英雄技能，看了看攻略，每局认真游戏，他在钻石星耀的胜率提升到了55%。当然随着胜率的上升，每局的加分也会相应上升，我们粗略认为他的s提升到了25。首次上钻石和星耀5张，战令2张保护卡，于是n减去7<br>直接计算钻5到王者：<br>$$<br>25+25-7=2*0.55k-k+\frac{25k}{300}<br>$$<br>解得$k\approx 234$<br>那么此时需要97小时的游戏时间，一个赛季的话需要每天打2-3局。</p>
+<p>那么如果小明请代练呢？<br>小明不满上分效率，去某宝请了一个代练。代练大杀四方，场均金银牌，胜率80%，加分s平均50。<br>$$<br>25+25-7=2*0.8k-k+\frac{50k}{300}<br>$$<br>解得k=30<br>此时两三个晚上便可王者。</p>
+<p>最后，小明需要多坑才会稳定掉段呢？<br>既然比较坑，s降为15，将(1)式变形<br>$$<br>k=\frac{an}{2ap-a+s}<br>$$<br>$k\rightarrow \infty$时，$n&lt;0$,即<br>$$<br>p&lt;0.5-\frac{s}{2a}<br>$$</p>
+<table>
+<thead>
+<tr>
+<th align="center">段位</th>
+<th align="center">稳定掉星所需胜率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">白银</td>
+<td align="center">37.5%</td>
+</tr>
+<tr>
+<td align="center">黄金</td>
+<td align="center">40.6%</td>
+</tr>
+<tr>
+<td align="center">铂金</td>
+<td align="center">45%</td>
+</tr>
+<tr>
+<td align="center">钻石</td>
+<td align="center">47.5%</td>
+</tr>
+<tr>
+<td align="center">星耀</td>
+<td align="center">47.5%</td>
+</tr>
+<tr>
+<td align="center">王者</td>
+<td align="center">47.9%</td>
+</tr>
+</tbody></table>
+<p>可以看到排位机制还是比较友好的，只要你可以保证高于上面这些胜率，基本就能够稳定上分了。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -549,7 +739,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/">http://polarstormx.github.io/2020/03/02/jian-dan-pa-chong-nai-mu-ban-tu-ku-1/</a>
+                    <a href="http://polarstormx.github.io/2020/03/11/wang-zhe-rong-yao-ji-fen-ji-zhi-ji-suan/">http://polarstormx.github.io/2020/03/11/wang-zhe-rong-yao-ji-fen-ji-zhi-ji-suan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -586,15 +776,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E4%B9%83%E6%9C%A8%E5%9D%82/">
-                                    <span class="chip bg-color">乃木坂</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                    <span class="chip bg-color">爬虫</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -898,38 +1080,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/03/03/code-test/">
+                <a href="/2020/03/11/wang-zhe-rong-yao-ji-fen-ji-zhi-ji-suan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="code test">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="王者荣耀积分机制计算">
                         
-                        <span class="card-title">code test</span>
+                        <span class="card-title">王者荣耀积分机制计算</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            #include &lt;iostream>
-#include &lt;vector>
-using namespace std;
-
-class object
-{
-public:
-    object();
-};
-double Base(in
+                            写这篇文章的原因是前一阵子，好友g某因为太菜惹了女友生气，要求他必须上了王者才可以继续一起双排，于是帮他算算在王者荣耀的机制下，胜率与上分效率的关系。
+假设一个玩家的胜率为$p(0&lt;=p&lt;=1)$，平均每局的勇者积分为$s(s\
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -938,6 +1113,7 @@ double Base(in
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -948,24 +1124,25 @@ double Base(in
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/28/hello-world/">
+                <a href="/2020/03/05/bo-ke-de-jian-li-ji-you-hua-guo-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="博客的建立及优化过程">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">博客的建立及优化过程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            建立这个博客的过程中碰到了一系列的问题，这个网站也经过了许多的完善及优化才变成当前这个模样，本篇记录了每次优化以及问题修复的过程。　　
+基础信息　　本博客采用的hexo架构，使用了matery主题，部署在GitHub Pages上，莫得钱买
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-05
                             </span>
                         <span class="publish-author">
                             
@@ -974,6 +1151,14 @@ double Base(in
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1145,6 +1330,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     
 
 </main>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 	</div>
     <footer class="page-footer bg-color">
