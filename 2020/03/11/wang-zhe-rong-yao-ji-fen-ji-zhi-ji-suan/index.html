@@ -595,7 +595,7 @@
 </tbody></table>
 <p>虽败犹荣与实力较强官方没有给出具体数据，就已知数据而言，每局有无挂机的3分，局内评分平均$\frac{5+4+4+3+3}{5}=3.8$分。</p>
 <p>计算连胜奖励分，方便起见，记失败概率为$q=1-p$,对于第m局，此局无连胜的概率为第m局胜利、第m-1局失败的概率$pq$,此局1连胜的概率为第m局与第m-1局获胜且第m-2局失败的概率$p^2q$…4连胜概率为$p^5q$,五连胜及以上的概率为$p^6$<br>$$<br>E=\sum 3qp^2+5qp^3+10qp^4+15qp^5+20p^6<br>$$<br>显然这个式子很不直观，因此我们通过excel绘制p从0至1的奖励分期望：</p>
-<p><img src="//polarstormx.github.io/2020/03/11/wang-zhe-rong-yao-ji-fen-ji-zhi-ji-suan/pasted-0.png" alt></p>
+<p><img src="//polarstormx.github.io/2020/03/11/wang-zhe-rong-yao-ji-fen-ji-zhi-ji-suan/pasted-0.png" alt=""></p>
 <p>可以看到当胜率很高时会获得相当多的连胜奖励分，但由于elo系统会使你的胜率在50%附近，我们观察胜率为0.4-0.6的连胜分：</p>
 <table>
 <thead>
@@ -1334,7 +1334,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        tex2jax: {inlineMath: ['$', '$']}
     });
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 </script>
@@ -1377,7 +1377,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.1k</span>&nbsp;字
+                class="white-color">5.3k</span>&nbsp;字
             
             
             
